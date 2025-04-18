@@ -16,8 +16,8 @@ app.get('/', (req, res) => {
 // User registration endpoint
 app.post('/register', async (req, res) => {
   try {
-    const { username, password } = req.body;
-    const newUser = new User({ username, password });
+    const { username, password, email } = req.body;
+    const newUser = new User({ username, password, email });
     await newUser.save();
     res.status(201).json({ message: 'User is registered.' });
   } catch (error) {
